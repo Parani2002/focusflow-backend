@@ -36,13 +36,11 @@ export class TasksService {
     if (taskIndex === -1) {
       throw new NotFoundException(`Task with ID "${id}" not found`);
     }
-    
     const updatedTask: Task = {
       ...this.tasks[taskIndex],
       ...updateTaskDto,
       updatedAt: new Date(),
     };
-    
     this.tasks[taskIndex] = updatedTask;
     return updatedTask;
   }
